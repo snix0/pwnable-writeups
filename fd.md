@@ -3,7 +3,7 @@ This is a challenge focused on understanding Linux file descriptors. We are give
 The file descriptor is passed in via argv[1]. If the strings are equal, the flag (owned by the SUID user) is fetched.
 
 ### Source Code
-```
+```c
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
