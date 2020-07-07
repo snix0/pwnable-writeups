@@ -1,7 +1,8 @@
 ### Synopsis
-This is a challenge focused on understanding Linux file descriptors.
+This is a challenge focused on understanding Linux file descriptors. We are given a SUID binary which reads input from a file descriptor and compares it to a given string.
+The file descriptor is passed in via argv[1]. If the strings are equal, the flag is fetched.
 
-### Solution
+### Analysis
 The program is reading user input and checking the contents of the buffer after a call to `read(argv[1] - 0x1234, buffer, 32)` to see if it matches the string `LETMEWIN\n`.
 Thus, we need to pass in a value that will make the first argument of read equal to stdin (the first argument is the file descriptor: see `man 2 read`).
 The file descriptor for stdin is 0, so we want to satisfy `argv[1] - 0x1234 == 0`. If we convert 0x1234 to decimal, we get 4660.
