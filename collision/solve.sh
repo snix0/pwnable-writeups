@@ -1,0 +1,1 @@
+./col $(python2 -c 'print "\xc8\xce\xc5\x06" * 4 + "\xcc\xce\xc5\x06"')
